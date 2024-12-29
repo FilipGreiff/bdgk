@@ -1,0 +1,58 @@
+---
+const contactInfo = {
+  phone: '0523-443 49, 070-366 02 51',
+  email: 'info@brastadgk.se',
+  golfcenter: '0523-444 44',
+  swish: '123 653 71 38'
+};
+
+const links = [
+  { name: 'Bohuslän-Dals Golfförbund', href: 'https://www.bdgf.se' },
+  { name: 'Svenska Golfförbundet', href: 'https://www.golf.se' },
+  { name: 'Grönt Kort', href: '/gront-kort' },
+  { name: 'Lokala regler', href: '/lokala-regler' }
+];
+---
+
+<footer class="bg-white mt-auto">
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Brastad Golfklubb</h3>
+        <p class="text-sm text-gray-600">Den lilla klubben med det stora hjärtat</p>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Kontakt</h3>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li>Tel: {contactInfo.phone}</li>
+          <li>E-post: {contactInfo.email}</li>
+          <li>Brastad Golfcenter: {contactInfo.golfcenter}</li>
+          <li>Swish: {contactInfo.swish}</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Länkar</h3>
+        <ul class="space-y-2">
+          {links.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class="text-sm text-gray-600 hover:text-green-700"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <p class="text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Brastad Golfklubb. Alla rättigheter förbehållna.
+      </p>
+    </div>
+  </div>
+</footer>

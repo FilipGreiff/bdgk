@@ -1,0 +1,36 @@
+---
+const navigation = [
+  { name: 'Start', href: '/' },
+  { name: 'Klubben', href: '/klubben' },
+  { name: 'Banan', href: '/banan' },
+  { name: 'Tävlingar', href: '/tavlingar' },
+  { name: 'Medlemskap', href: '/medlemskap' },
+  { name: 'Kontakt', href: '/kontakt' }
+];
+---
+
+<header class="bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center">
+          <img src="/logo2016.jpg" alt="Brastad Golfklubb" class="h-16 w-auto" />
+          <div class="ml-4">
+            <h1 class="text-xl font-bold text-gray-900">Brastad Golfklubb</h1>
+            <p class="text-sm text-gray-600">Den lilla klubben med det stora hjärtat</p>
+          </div>
+        </a>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        {navigation.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-700 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium"
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>

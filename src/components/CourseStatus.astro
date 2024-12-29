@@ -1,0 +1,58 @@
+---
+const courseStatus = {
+  isOpen: false,
+  weather: {
+    temp: 12,
+    condition: 'Molnigt',
+    windSpeed: 4
+  },
+  drivingRange: {
+    isOpen: true,
+    hours: '08:00 - 20:00'
+  },
+  greenFee: {
+    weekday: 350,
+    weekend: 450,
+    junior: 200
+  }
+};
+---
+
+<section class="bg-white rounded-lg shadow-md p-6 mb-8">
+  <h2 class="text-2xl font-bold text-gray-900 mb-4">Banstatus</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <h3 class="font-semibold text-gray-700 mb-2">Banan är</h3>
+      <p class={`text-lg font-bold ${courseStatus.isOpen ? 'text-green-600' : 'text-red-600'}`}>
+        {courseStatus.isOpen ? 'ÖPPEN' : 'STÄNGD'}
+      </p>
+    </div>
+    
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <h3 class="font-semibold text-gray-700 mb-2">Väder</h3>
+      <p class="text-lg">
+        {courseStatus.weather.temp}°C, {courseStatus.weather.condition}
+        <br />
+        <span class="text-sm">Vind: {courseStatus.weather.windSpeed} m/s</span>
+      </p>
+    </div>
+    
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <h3 class="font-semibold text-gray-700 mb-2">Driving Range</h3>
+      <p class={`text-lg ${courseStatus.drivingRange.isOpen ? 'text-green-600' : 'text-red-600'}`}>
+        {courseStatus.drivingRange.isOpen ? 'ÖPPEN' : 'STÄNGD'}
+        <br />
+        <span class="text-sm text-gray-600">{courseStatus.drivingRange.hours}</span>
+      </p>
+    </div>
+    
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <h3 class="font-semibold text-gray-700 mb-2">Greenfee</h3>
+      <p class="text-lg">
+        Vardag: {courseStatus.greenFee.weekday} kr
+        <br />
+        <span class="text-sm">Helg: {courseStatus.greenFee.weekend} kr</span>
+      </p>
+    </div>
+  </div>
+</section>
